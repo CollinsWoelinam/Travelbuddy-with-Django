@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelBuddy</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 0;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2em;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 15px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      /* Main Content Styles */
+      main {
+        padding: 20px 0;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .hero {
+        background-color: #e0f7fa;
+        padding: 40px;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 2.5em;
+        color: #333;
+      }
+
+      .features {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .feature-box {
+        width: 30%;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .feature-box h3 {
+        color: #4caf50;
+      }
+
+      .feature-box p {
+        color: #666;
+      }
+
+      .cta {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      .cta a {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 1.2em;
+      }
+
+      .cta a:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>TravelBuddy</h1>
+        <nav>
+          <ul>
+            {% comment %} <li><a href="{% url 'home' %}">Home</a></li> {% endcomment %}
+            <li>
+              <a href="{% url 'destination_search' %}">Destination Search</a>
+            </li>
+            <li><a href="{% url 'trip_planning' %}">Trip Planning</a></li>
+            <li><a href="{% url 'review_list' %}">Reviews</a></li>
+            <li><a href="{% url 'safety_privacy' %}">Safety & Privacy</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        {% block content %}
+        <section class="hero">
+          <h2>Explore Destinations, Plan Trips, and Share Experiences</h2>
+          <p>Discover the best travel spots, plan your trips with friends, and get personalized recommendations based on real user reviews.</p>
+        </section>
+
+        <section class="features">
+          <div class="feature-box">
+            <h3>Search Destinations</h3>
+            <p>Explore amazing destinations like Ho, Afadza, Peki, and more. Use our destination search tool to find the perfect getaway!</p>
+            <a href="{% url 'destination_search' %}">Start Searching</a>
+          </div>
+          <div class="feature-box">
+            <h3>Plan Your Trip</h3>
+            <p>Collaborate with friends and family to plan the perfect trip. From itinerary planning to booking details, TravelBuddy has you covered.</p>
+            <a href="{% url 'trip_planning' %}">Plan Your Trip</a>
+          </div>
+          <div class="feature-box">
+            <h3>Read & Post Reviews</h3>
+            <p>Check out reviews from other travelers and post your own to help others discover hidden gems and must-see locations.</p>
+            <a href="{% url 'review_list' %}">Read Reviews</a>
+          </div>
+        </section>
+
+        <div class="cta">
+          <h3>Ready to Start Your Next Adventure?</h3>
+          <a href="{% url 'register' %}">Join TravelBuddy Today</a>
+        </div>
+        {% endblock %}
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 TravelBuddy. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

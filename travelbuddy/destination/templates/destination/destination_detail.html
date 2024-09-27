@@ -1,0 +1,27 @@
+<!-- templates/reviews/destination_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ destination.name }}</title>
+</head>
+<body>
+    <h2>{{ destination.name }}</h2>
+    <p><strong>Location:</strong> {{ destination.location }}</p>
+    <p><strong>Description:</strong> {{ destination.description }}</p>
+
+    <h3>Reviews:</h3>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <strong>User:</strong> {{ review.user.username }}<br>
+            <strong>Review:</strong> {{ review.review_text }}<br>
+            <strong>Posted on:</strong> {{ review.posted_on|date:"F j, Y" }}
+        </li>
+        {% empty %}
+        <p>No reviews for this destination yet.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

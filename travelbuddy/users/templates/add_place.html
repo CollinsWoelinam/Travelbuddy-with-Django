@@ -1,0 +1,72 @@
+<!-- add_place.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBuddy - Add Place</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .cta {
+            text-align: center;
+        }
+        .cta button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .cta button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add a Place</h2>
+        <form action="{% url 'add_place' %}" method="POST">
+            {% csrf_token %}
+            <label for="place_name">Place Name:</label>
+            <input type="text" id="place_name" name="place_name" placeholder="Enter the name of the place" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter the location" required>
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" placeholder="Brief description of the place">
+
+            <div class="cta">
+                <button type="submit">Add Place</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

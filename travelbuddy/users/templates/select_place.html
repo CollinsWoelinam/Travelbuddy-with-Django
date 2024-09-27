@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Place - TravelBuddy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #4CAF50;
+            font-size: 2em;
+            text-align: center;
+        }
+        p {
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+        }
+        .places-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .place {
+            background-color: #e0f7fa;
+            width: 30%;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            border-left: 5px solid #4CAF50;
+        }
+        .place h3 {
+            margin: 10px 0;
+        }
+        .place p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .cta {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .cta a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .cta a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select a Place</h2>
+        <p>Choose a destination for your trip from the available options below.</p>
+
+        <div class="places-list">
+            <div class="place">
+                <h3>New York City</h3>
+                <p>The Big Apple offers world-class museums, dining, and shopping experiences.</p>
+            </div>
+            <div class="place">
+                <h3>Paris</h3>
+                <p>Visit the Eiffel Tower, explore the Louvre, and enjoy fine French cuisine.</p>
+            </div>
+            <div class="place">
+                <h3>Tokyo</h3>
+                <p>Experience a vibrant mix of tradition and modernity in Japan's capital city.</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="{% url 'select_accommodation' %}">Next: Select Accommodation</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- templates/reviews/review_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+</head>
+<body>
+    <h2>Reviews</h2>
+    <ul>
+        {% comment %} {% for review in reviews %}
+        <li>
+            <strong>Place:</strong> <a href="{% url 'destination_detail' review.destination.id %}">{{ review.destination.name }}</a><br>
+            <strong>User:</strong> {{ review.user.username }}<br>
+            <strong>Review:</strong> {{ review.review_text|truncatewords:20 }}<br>
+            <a href="{% url 'destination_detail' review.destination.id %}">Read more</a>
+        </li>
+        {% endfor %} {% endcomment %}
+
+        {% for review in reviews %}
+    <div>
+      <h3>
+        Review for {{ review.destination.name }} by {{ review.user.username }}
+      </h3>
+      <p>{{ review.content }}</p>
+      <a href="{% url 'destination_detail' review.destination.id %}"
+        >Read more about this place</a
+      >
+    </div>
+    {% endfor %}
+    </ul>
+</body>
+</html>

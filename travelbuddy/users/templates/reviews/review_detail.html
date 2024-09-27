@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ review.title }}</h1>
+<p>{{ review.content }}</p>
+<p>Rating: {{ review.rating }}</p>
+
+<h2>Trips Related to This Review</h2>
+<div id="trips">
+    {% for trip in trips %}
+        <div class="trip">
+            <h3>{{ trip.name }}</h3>
+            <p>Details about this trip...</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

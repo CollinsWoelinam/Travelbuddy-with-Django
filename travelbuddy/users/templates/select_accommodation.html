@@ -1,0 +1,77 @@
+<!-- select_accommodation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBuddy - Select Accommodation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .cta {
+            text-align: center;
+        }
+        .cta button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .cta button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Accommodation</h2>
+        <form action="{% url 'select_accommodation' %}" method="POST">
+            {% csrf_token %}
+            <label for="place">Choose a Place:</label>
+            <select id="place" name="place">
+                {% for place in places %}
+                    <option value="{{ place.id }}">{{ place.name }} - {{ place.location }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="accommodation">Choose Accommodation:</label>
+            <select id="accommodation" name="accommodation">
+                {% for accommodation in accommodations %}
+                    <option value="{{ accommodation.id }}">{{ accommodation.name }} - {{ accommodation.type }}</option>
+                {% endfor %}
+            </select>
+
+            <div class="cta">
+                <button type="submit">Confirm Accommodation</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

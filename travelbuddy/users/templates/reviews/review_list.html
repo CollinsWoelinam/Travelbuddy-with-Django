@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Reviews</h1>
+<a href="{% url 'post_review' %}">Post a Review</a>
+<div id="reviews">
+    {% for review in reviews %}
+        <div class="review" onclick="window.location.href='{% url 'review_detail' review.id %}'">
+            <h2>{{ review.title }}</h2>
+            <p>{{ review.content }}</p>
+            <p>Rating: {{ review.rating }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

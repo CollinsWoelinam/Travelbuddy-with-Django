@@ -1,0 +1,97 @@
+<!-- trip_planning.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBuddy - Trip Planning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #4CAF50;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        li a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        li a:hover {
+            text-decoration: underline;
+        }
+        .feature-box {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-left: 5px solid #4CAF50;
+            margin-bottom: 15px;
+        }
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .cta a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .cta a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Plan Your Trip</h2>
+        <p>Coordinate itineraries, activities, and engage in meaningful discussions with your travel buddies. With our collaborative trip planning tools, you can easily manage your trip from start to finish.</p>
+        
+        <ul>
+            <li>
+                <div class="feature-box">
+                    <h3><a href="#">Itinerary Sharing</a></h3>
+                    <p>Create, share, and synchronize itineraries with your travel group. Each member can view and suggest changes, ensuring a seamless travel experience for everyone involved.</p>
+                </div>
+            </li>
+            <li>
+                <div class="feature-box">
+                    <h3><a href="#">Activity Coordination</a></h3>
+                    <p>Coordinate activities like hiking, sightseeing, or dining experiences. Invite your travel companions to vote on activities and keep track of group preferences.</p>
+                </div>
+            </li>
+            <li>
+                <div class="feature-box">
+                    <h3><a href="#">Accommodation & Travel Arrangements</a></h3>
+                    <p>Book accommodations and organize travel logistics within the app. Share details about flights, hotels, and local transportation so the entire group stays informed.</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="cta">
+            <h3>Ready to plan your next adventure?</h3>
+            <a href="{% url 'trip_planning' %}">Start Planning</a>
+        </div>
+    </div>
+</body>
+</html>

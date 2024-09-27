@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            text-align: center;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        .form-group {
+            margin-top: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-picture">
+            {% if user.profile.profile_picture %}
+                <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }}" class="rounded-circle">
+            {% else %}
+                <img src="{{ MEDIA_URL }}default.jpg" alt="{{ user.username }}" class="rounded-circle">
+            {% endif %}
+        </div>
+        
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Travel Preferences: {{ user.travel_preferences }}</p>
+        <p>Interests: {{ user.interests }}</p>
+        <a href="{% url 'update_profile' %}">Update Profile</a>
+        <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" style="background: none; border: none; color: black; cursor: pointer; font-weight: bold;">
+                Logout
+            </button>
+        </form>
+        
+    </div>
+</body>
+</html>
